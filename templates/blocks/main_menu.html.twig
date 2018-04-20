@@ -1,0 +1,163 @@
+{#<!-- Category menu 1 -->#}
+{#<nav class="navbar navbar-default nav-1">#}
+    {#<!-- NAV STYLES -->#}
+    {#<ul class="nav nav-justified">#}
+        {#<li class="no-stretch">#}
+            {#<a href="/">#}
+                {#<b class="glyphicon glyphicon-home"></b>#}
+            {#</a>#}
+        {#</li>#}
+
+        {#{% for category in categories[0:8] %}#}
+            {#<li>#}
+                {#<a href="{{ lang.url.category_products ~ category.id }}">{{ category.name }}</a>#}
+            {#</li>#}
+        {#{% else %}#}
+            {#<li style="text-align: center; font-weight: bold">Geen categorieën</li>#}
+        {#{% endfor %}#}
+
+        {#<!-- Add additional categories to a dropdown -->#}
+        {#{% if categories|length > 8 %}#}
+            {#<li role="presentation" class="dropdown">#}
+                {#<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"#}
+                   {#aria-expanded="false">Meer<span class="caret"></span>#}
+                {#</a>#}
+                {#<ul class="dropdown-menu">#}
+                    {#{% for category in categories[8:] %}#}
+                        {#<li>#}
+                            {#<a href="{{ lang.url.category_products ~ category.id }}">#}
+                                {#{{ category.name }}#}
+                            {#</a>#}
+                        {#</li>#}
+                    {#{% endfor %}#}
+                {#</ul>#}
+            {#</li>#}
+        {#{% endif %}#}
+    {#</ul>#}
+{#</nav>#}
+
+        <!-- ---------------------------------------------------------------------------- -->
+
+<!-- Category menu 2 -->
+{#<nav class="navbar navbar-default nav-2">#}
+    {#<!-- NAV STYLES -->#}
+    {#<ul class="nav nav-justified nav-plain">#}
+        {#<li class="no-stretch">#}
+            {#<a href="/">#}
+                {#<b class="glyphicon glyphicon-home"></b>#}
+            {#</a>#}
+        {#</li>#}
+        {#{% for category in categories[0:8] %}#}
+            {#<li>#}
+                {#<a href="{{ lang.url.category_products ~ category.id }}">{{ category.name }}</a>#}
+            {#</li>#}
+        {#{% else %}#}
+            {#<li style="text-align: center; font-weight: bold">Geen categorieën</li>#}
+        {#{% endfor %}#}
+
+        {#<!-- Add additional categories to a dropdown -->#}
+        {#{% if categories|length > 8 %}#}
+            {#<li role="presentation" class="dropdown">#}
+                {#<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"#}
+                   {#aria-expanded="false">Meer<span class="caret"></span>#}
+                {#</a>#}
+                {#<ul class="dropdown-menu">#}
+                    {#{% for category in categories[8:] %}#}
+                        {#<li>#}
+                            {#<a href="{{ lang.url.category_products ~ category.id }}">#}
+                                {#{{ category.name }}#}
+                            {#</a>#}
+                        {#</li>#}
+                    {#{% endfor %}#}
+                {#</ul>#}
+            {#</li>#}
+        {#{% endif %}#}
+        {#<form class="form-horizontal search-products" method="get" action="{{ lang.url.products }}">#}
+
+            {#{% if selected_brands is defined %}#}
+                {#{% for brand in selected_brands %}#}
+                    {#<input type="hidden" name="brands[{{ loop.index0 }}]" value="{{ brand }}"/>#}
+                {#{% endfor %}#}
+            {#{% endif %}#}
+
+            {#<div class="form-group menu-2">#}
+                {#<div class="col-sm-12">#}
+                    {#<div class="search input-group" data-initialize="search" role="search">#}
+                        {#<input id="query" name="query" class="form-control"#}
+                               {#placeholder="Naam, beschrijving, EAN of SKU" type="search" value="">#}
+                        {#<span class="input-group-btn">#}
+                            {#<button class="btn btn-default" type="submit">#}
+                                {#<span class="glyphicon glyphicon-search"></span>#}
+                                {#<span class="sr-only">Zoeken</span>#}
+                            {#</button>#}
+                        {#</span>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</form>#}
+    {#</ul>#}
+{#</nav>#}
+
+        <!-- ---------------------------------------------------------------------------- -->
+
+<!-- Category menu 3 -->
+<nav id="fixedheader" class="navbar navbar-default nav-3">
+    <!-- NAV STYLES -->
+    <ul class="nav nav-justified nav-plain">
+        <li class="no-stretch">
+            <a href="/">
+                <b class="glyphicon glyphicon-home"></b>
+            </a>
+        </li>
+        {% for category in categories[0:2] %}
+            <li>
+                <a href="{{ lang.url.category_products ~ category.id }}">{{ category.name }}</a>
+            </li>
+        {% else %}
+            <li style="text-align: center; font-weight: bold">Geen categorieën</li>
+        {% endfor %}
+
+        <!-- Add additional categories to a dropdown -->
+        {% if categories|length > 2 %}
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Meer<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    {% for category in categories[2:] %}
+                        <li>
+                            <a href="{{ lang.url.category_products ~ category.id }}">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+        <li id="search" class="hidden">
+            <form class="form-horizontal search-products" method="get" action="{{ lang.url.products }}">
+
+                {% if selected_brands is defined %}
+                    {% for brand in selected_brands %}
+                        <input type="hidden" name="brands[{{ loop.index0 }}]" value="{{ brand }}"/>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="search input-group" data-initialize="search" role="search">
+                            <input id="query" name="query" class="form-control"
+                                   placeholder="Naam, beschrijving, EAN of SKU" type="search" value="">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    <span class="sr-only">Zoeken</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,21 @@
+{% block post_js %}
+    <script>
+
+        var header = document.getElementById("fixedheader");
+        var search = document.getElementById("search");
+        var content = document.getElementById("content");
+        var sticky = header.offsetTop;
+
+        function stickyHeader() {
+            if (window.pageYOffset >= sticky) {
+                header.classList.add("sticky");
+                content.classList.add("content");
+                search.classList.remove("hidden");
+            } else {
+                header.classList.remove("sticky");
+                content.classList.remove("content");
+                search.classList.add("hidden");
+            }
+        }
+    </script>
+{% endblock %}
