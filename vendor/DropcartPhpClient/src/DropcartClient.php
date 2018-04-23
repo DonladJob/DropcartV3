@@ -60,7 +60,7 @@ use Psr\Http\Message\ResponseInterface;
  * @method static DropcartClient setPrivateKey(string $private_key) Sets the overall private key
  */
 class DropcartClient {
-
+ 
 	/**
 	 * @var DropcartClient
 	 */
