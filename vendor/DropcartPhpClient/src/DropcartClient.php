@@ -27,9 +27,7 @@
  * =========================================================
  */
 
-
 namespace Dropcart\PhpClient;
-
 
 use Dropcart\PhpClient\DropcartClientException;
 use Dropcart\PhpClient\Helpers\Caller;
@@ -60,7 +58,6 @@ use Psr\Http\Message\ResponseInterface;
  * @method static DropcartClient setPrivateKey(string $private_key) Sets the overall private key
  */
 class DropcartClient {
- 
 	/**
 	 * @var DropcartClient
 	 */
@@ -204,7 +201,7 @@ class DropcartClient {
 		$url        = $request->getUrl($base_url, ($request->hasQuery() && $request->getHttpMethod() == 'GET'));
 
 //		die('Bearer ' . static::getToken());
-		$bearer = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0ZjE1OTExZWI0Mzg1NDRjNzllYTU3YjVmZDlhZDNjYzdjYjRkOTY2ZTllYTZmZjhiMWQ3YzM4OWVhNTNjYTY3IiwiYXVkIjoiaHR0cDpcL1wvdGVzdC5kcm9wY2FydC5ubFwvIiwiZXhwIjoxNTI0MjQ5MDg4LCJpYXQiOjE1MjQyMTMwODh9.WEiAzqoP8ZkZuOTskD1utrj4wdr9jbxCpGiweyhKY7o';
+		$bearer = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI2ZTJiODM4MGYzZjZlZTIyMDc0YTE4ZDY5MWM5ODc1Nzk5ZWZmZjcyMDFkZWQ5MTYxYTYxZWNhNzBjNTI2OTg1IiwiYXVkIjoiaHR0cDpcL1wvdGVzdC5kcm9wY2FydC5ubFwvIiwiZXhwIjoxNTI1MTM2OTExLCJpYXQiOjE1MjUxMDA5MTF9.jlY4pEVpG80nEa_XJpbeJX6t70l-6rbZ_43r3iXVl-w';
 
 		$options = [
 			'headers' => [

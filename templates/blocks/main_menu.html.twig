@@ -41,7 +41,7 @@
 <!-- Category menu 2 -->
 {#<nav class="navbar navbar-default nav-2">#}
     {#<!-- NAV STYLES -->#}
-    {#<ul class="nav nav-justified nav-plain">#}
+    {#<ul class="nav nav-justified nav-plain round-border">#}
         {#<li class="no-stretch">#}
             {#<a href="/">#}
                 {#<b class="glyphicon glyphicon-home"></b>#}
@@ -101,30 +101,32 @@
         <!-- ---------------------------------------------------------------------------- -->
 
 <!-- Category menu 3 -->
-<nav id="fixedheader" class="navbar navbar-default nav-3">
+
+<nav id="navbar" class="navbar navbar-default nav-3 hidden-xs">
     <!-- NAV STYLES -->
-    <ul class="nav nav-justified nav-plain">
+    <ul class="nav nav-justified nav-plain round-border">
         <li class="no-stretch">
             <a href="/">
                 <b class="glyphicon glyphicon-home"></b>
             </a>
         </li>
-        {% for category in categories[0:2] %}
+
+        {% for category in categories[0:6] %}
             <li>
                 <a href="{{ lang.url.category_products ~ category.id }}">{{ category.name }}</a>
             </li>
         {% else %}
-            <li style="text-align: center; font-weight: bold">Geen categorieën</li>
+            {#<li style="text-align: center; font-weight: bold">Geen categorieën</li>#}
         {% endfor %}
 
         <!-- Add additional categories to a dropdown -->
-        {% if categories|length > 2 %}
+        {% if categories|length > 6 %}
             <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Meer<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    {% for category in categories[2:] %}
+                    {% for category in categories[6:] %}
                         <li>
                             <a href="{{ lang.url.category_products ~ category.id }}">
                                 {{ category.name }}
@@ -134,7 +136,170 @@
                 </ul>
             </li>
         {% endif %}
-        <li id="search" class="hidden">
+    </ul>
+</nav>
+
+<nav id="fixednavbar" class="navbar navbar-default nav-3 sticky hidden-xs hidden">
+    <!-- NAV STYLES -->
+    <ul class="nav nav-justified nav-plain round-border">
+        <li class="no-stretch">
+            <a href="/">
+                <b class="glyphicon glyphicon-home"></b>
+            </a>
+        </li>
+
+        {% for category in categories[0:0] %}
+            <li>
+                <a href="{{ lang.url.category_products ~ category.id }}">{{ category.name }}</a>
+            </li>
+        {% else %}
+            {#<li style="text-align: center; font-weight: bold">Geen categorieën</li>#}
+        {% endfor %}
+
+        <!-- Add additional categories to a dropdown -->
+        {% if categories|length > 0 %}
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Categorieën<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    {% for category in categories[0:] %}
+                        <li>
+                            <a href="{{ lang.url.category_products ~ category.id }}">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+
+        <li id="search">
+            <form class="form-horizontal search-products" method="get" action="{{ lang.url.products }}">
+
+                {% if selected_brands is defined %}
+                    {% for brand in selected_brands %}
+                        <input type="hidden" name="brands[{{ loop.index0 }}]" value="{{ brand }}"/>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="search input-group" data-initialize="search" role="search">
+                            <input id="query" name="query" class="form-control"
+                                   placeholder="Naam, beschrijving, EAN of SKU" type="search" value="">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    <span class="sr-only">Zoeken</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </li>
+        <li role="presentation" id="shoppingcart" class="no-stretch dropdown">
+            <!-- Shopping cart -->
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="text-decoration: none;">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+            </a>
+
+            <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{ lang.url.shopping_cart }}">
+                            <div class="cart-content">
+                                {% if shopping_cart_overview is defined and shopping_cart_overview.total_products > 0 %}
+                                    <span class="cart-items">{{ shopping_cart_overview.total_products ~ ' artikel(en)' }}</span>
+                                    - <span class="cart-total">&euro;&nbsp;<span class="cart-total-amount">{{ shopping_cart_overview.total_price|number_format(2, ',', '.') }}</span></span>
+                                {% else %}
+                                    <small><i>Geen producten</i></small>
+                                {% endif %}
+                            </div>
+                        </a>
+                    </li>
+            </ul>
+
+            <div class="cart-content hidden">
+                {% if shopping_cart_overview is defined and shopping_cart_overview.total_products > 0 %}
+                    <span class="cart-items">{{ shopping_cart_overview.total_products ~ ' artikel(en)' }}</span>
+                    - <span class="cart-total">&euro;&nbsp;<span class="cart-total-amount">{{ shopping_cart_overview.total_price|number_format(2, ',', '.') }}</span></span>
+                {% else %}
+                    <small><i>Geen producten</i></small>
+                {% endif %}
+            </div>
+        </li>
+    </ul>
+</nav>
+
+{# Mobiel menu #}
+<nav id="xs-menu" class="navbar navbar-default nav-3 sticky xs-menu full-width hidden-sm hidden-md hidden-lg">
+    <!-- NAV STYLES -->
+    <ul class="nav nav-justified nav-plain round-border">
+        <li class="no-stretch float-left" style="width: 12.5%">
+            <a href="/">
+                <b class="glyphicon glyphicon-home"></b>
+            </a>
+        </li>
+
+        {% for category in categories[0:0] %}
+            <li>
+                <a href="{{ lang.url.category_products ~ category.id }}">{{ category.name }}</a>
+            </li>
+        {% else %}
+            {#<li style="text-align: center; font-weight: bold">Geen categorieën</li>#}
+        {% endfor %}
+
+        <!-- Add additional categories to a dropdown -->
+        {% if categories|length > 0 %}
+            <li role="presentation" class="dropdown float-left" style="width: 75%">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Categorieën<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    {% for category in categories[0:] %}
+                        <li>
+                            <a href="{{ lang.url.category_products ~ category.id }}">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+
+        <li role="presentation" id="shoppingcart" class="no-stretch dropdown float-left" style="width: 12.5%">
+            <!-- Shopping cart -->
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="text-decoration: none;">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ lang.url.shopping_cart }}">
+                        <div class="cart-content">
+                            {% if shopping_cart_overview is defined and shopping_cart_overview.total_products > 0 %}
+                                <span class="cart-items">{{ shopping_cart_overview.total_products ~ ' artikel(en)' }}</span>
+                                - <span class="cart-total">&euro;&nbsp;<span class="cart-total-amount">{{ shopping_cart_overview.total_price|number_format(2, ',', '.') }}</span></span>
+                            {% else %}
+                                <small><i>Geen producten</i></small>
+                            {% endif %}
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="cart-content hidden">
+                {% if shopping_cart_overview is defined and shopping_cart_overview.total_products > 0 %}
+                    <span class="cart-items">{{ shopping_cart_overview.total_products ~ ' artikel(en)' }}</span>
+                    - <span class="cart-total">&euro;&nbsp;<span class="cart-total-amount">{{ shopping_cart_overview.total_price|number_format(2, ',', '.') }}</span></span>
+                {% else %}
+                    <small><i>Geen producten</i></small>
+                {% endif %}
+            </div>
+        </li>
+
+        <li id="search" class="col-xs-12 float-left">
             <form class="form-horizontal search-products" method="get" action="{{ lang.url.products }}">
 
                 {% if selected_brands is defined %}

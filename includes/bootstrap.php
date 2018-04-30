@@ -79,7 +79,8 @@ else
 										->setTimeout(config('timeout'));
 
 $ShoppingCart   = new shopping_cart([]);
-if(!function_exists('shopping_cart')) { function shopping_cart() { global $ShoppingCart; return $ShoppingCart; } }
+if(!function_exists('shopping_cart')) { function shopping_cart() { global $ShoppingCart;
+    clearstatcache(); return $ShoppingCart; } }
 $Customer       = new customer([]);
 if(!function_exists('customer')) { function customer() { global $Customer; return $Customer; } }
 $Messages       = new flash_messages([]);
@@ -103,7 +104,9 @@ $Twig = (object) [
 		'shopping_cart_overview'    => shopping_cart()->overview(),
         // Translations
         'lang'                      => lang(),
-	]
+        'container'                 => config('full_width'),
+	],
+
 ];
 
 if (isset($_SESSION['transaction']))
@@ -127,6 +130,7 @@ if(! function_exists('view') )
 		$template   = $Twig->environment->load($view);
 		$vars       = array_merge($Twig->default, $variables);
 
+        clearstatcache();
 		return $template->render($vars);
 	}
 }

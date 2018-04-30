@@ -3,41 +3,21 @@
 {% block content %}
 
 
-    <div class="row" style="margin-top: 50px">
+    <div class="row product" style="margin-top: 50px">
         <div class="col-md-4 center">
-            <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}" class="fill">
+            <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}" class="fill round-border box-shadow">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-left: -15px">
             <h3>{{ product.name }}</h3>
 
             <!-- PRODUCT DESCRIPTION -->
             <p >{{ product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!' }}</p>
 
-            <!-- PRODUCT STOCK -->
-            <div class="float-left stock-shipping-status">
-                {% if product.stock %}
-
-                    {% if product.stock > 10 %}
-                        <div class="label label-success">Ruimschoots op voorraad</div>
-                    {% else %}
-                        <div class="label label-success">Op voorraad</div>
-                    {% endif %}
-
-                    {% if product.shipping_details.shipping_days %}
-                        <div class="label label-info">Levertijd {{ product.shipping_details.shipping_days }} werkdag(en)</div>
-                    {% else %}
-                        <div class="label label-info">Levertijd 1-3 werkdag(en)</div>
-                    {% endif %}
-                {% else %}
-                    <div class="label label-warning">Niet op voorraad</div>
-                {% endif %}
-            </div>
-
             <div class="clearfix"></div>
         </div>
 
         <!-- PRODUCT PRICE -->
-        <div class="col-md-2" style="height: 243px;">
+        <div class="col-md-2 product-price round-border box-shadow">
 
             {% if product.price_details %}
                 <h3 class="price">
@@ -53,6 +33,26 @@
                     <a href="{{ lang.url.shopping_cart_add ~ product.id }}/1" class="btn btn btn-block btn-success order-link">
                         Bestellen <span class="glyphicon glyphicon-shopping-cart"></span>
                     </a>
+                </div>
+
+                <!-- PRODUCT STOCK -->
+                <div class="float-left stock-shipping-status">
+                    {% if product.stock %}
+
+                        {% if product.stock > 10 %}
+                            <div class="label label-success">Ruimschoots op voorraad</div>
+                        {% else %}
+                            <div class="label label-success">Op voorraad</div>
+                        {% endif %}
+
+                        {% if product.shipping_details.shipping_days %}
+                            <div class="label label-info">Levertijd {{ product.shipping_details.shipping_days }} werkdag(en)</div>
+                        {% else %}
+                            <div class="label label-info">Levertijd 1-3 werkdag(en)</div>
+                        {% endif %}
+                    {% else %}
+                        <div class="label label-warning">Niet op voorraad</div>
+                    {% endif %}
                 </div>
 
                 <!-- PRODUCT INFO -->

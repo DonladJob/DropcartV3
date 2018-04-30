@@ -46,8 +46,8 @@ return [
     "APP_LOCALE" => "NL",
 
     // Dropcart config
-    "DROPCART_KEY" => "4f15911eb438544c79ea57b5fd9ad3cc7cb4d966e9ea6ff8b1d7c389ea53ca67",
-    "DROPCART_SECRET" => "0cb67673ee1403928c04bbd31ab37e8a3f2804482a95ff1de6780a56d6718ca1",
+    "DROPCART_KEY" => "6e2b8380f3f6ee22074a18d691c9875799efff7201ded9161a61eca70c526985",
+    "DROPCART_SECRET" => "d77e08ed7fa77f7301fbcae52944228a0f7492318ae9f510573cb4b1c17f0603",
     "DROPCART_ENDPOINT" => "https://rest-api.sandbox.dropcart.nl/v3",
     "TIMEOUT" => 5,
 
@@ -57,6 +57,10 @@ return [
     "BASE_URL" => "/",
     "MULTILINGUAL" => false,
     "COUNTRIES" => "Nederland",
+    "FULL_WIDTH" => false,
+
+    // Navbar config
+
 
     // Twig config
     // Note: set the path relative from the public folder

@@ -1,20 +1,19 @@
 {% block post_js %}
-    <script>
-
-        var header = document.getElementById("fixedheader");
-        var search = document.getElementById("search");
+    <script type="text/javascript">
+        var header = document.getElementById("navbar");
+        var fixedheader = document.getElementById("fixednavbar");
         var content = document.getElementById("content");
         var sticky = header.offsetTop;
 
         function stickyHeader() {
             if (window.pageYOffset >= sticky) {
-                header.classList.add("sticky");
+                header.classList.add("hidden");
+                fixedheader.classList.remove("hidden");
                 content.classList.add("content");
-                search.classList.remove("hidden");
             } else {
-                header.classList.remove("sticky");
+                header.classList.remove("hidden");
+                fixedheader.classList.add("hidden");
                 content.classList.remove("content");
-                search.classList.add("hidden");
             }
         }
     </script>
