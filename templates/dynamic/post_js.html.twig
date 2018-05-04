@@ -9,10 +9,12 @@
             if (window.pageYOffset >= sticky) {
                 header.classList.add("hidden");
                 fixedheader.classList.remove("hidden");
+//                header.classList.add("sticky");
                 content.classList.add("content");
             } else {
                 header.classList.remove("hidden");
                 fixedheader.classList.add("hidden");
+//                header.classList.remove("sticky");
                 content.classList.remove("content");
             }
         }

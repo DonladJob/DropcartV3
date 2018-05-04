@@ -80,9 +80,9 @@
         </form>
         {% for product in products %}
             <!-- PRODUCT OVERVIEW -->
-            <div class="row floating-box round-border box-shadow">
+            <div class="row">
                 <!-- PRODUCT IMAGE -->
-                <div class="col-md-3 center">
+                <div class="col-md-3 center product-image">
                     <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}"
                          class="fill round-border box-shadow">
                 </div>
@@ -91,22 +91,6 @@
                     <!-- PRODUCT TITLE -->
                     <h3><a class="product-link" href="{{ lang.url.product ~ product.name|url_encode ~ '/' ~ product.id }}">{{ product.name }}</a></h3>
 
-                    <!-- PRODUCT DESCRIPTION -->
-                    <p class="pdesc">{{ product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!' }}</p>
-
-                    <!-- PRODUCT INFO -->
-                    <div class="float-right product-details">
-                        <table class="product-id-table">
-                            {#<tr>#}
-                                {#<th>EAN</th>#}
-                                {#<td>{{ product.ean }}</td>#}
-                            {#</tr>#}
-                            <tr>
-                                <th>SKU</th>
-                                <td>{{ product.sku }}</td>
-                            </tr>
-                        </table>
-                    </div>
 
                     <!-- PRODUCT STOCK -->
                     <div class="float-left stock-shipping-status">
@@ -127,23 +111,42 @@
                             <div class="label label-warning">Niet op voorraad</div>
                         {% endif %}
                     </div>
+                    <!-- PRODUCT INFO -->
+                    <div class="float-right product-details">
+                        <table class="product-id-table">
+                            {#<tr>#}
+                            {#<th>EAN</th>#}
+                            {#<td>{{ product.ean }}</td>#}
+                            {#</tr>#}
+                            <tr>
+                                <th>SKU</th>
+                                <td>{{ product.sku }}</td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="float-clear"></div>
+
+                    <!-- PRODUCT DESCRIPTION -->
+                    <p class="pdesc block-with-text">{{ product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!' }}</p>
+
                 </div>
 
                 <!-- PRODUCT PRICE -->
                 <div class="col-md-2 price-box round-border">
 
                     {% if product.price_details %}
-                        <h3 class="price">
-                            &euro;&nbsp;{{ (product.price_details.piece_price.in)|number_format(2, ',', '.') }}
-                            {#<div class="float-right"><span#}
-                            {#class="flag-icon flag-icon-<?= strtolower($product['price']['price_for_country']) ?>"></span>#}
-                            {#</div>#}
-                        </h3>
-                        <p class="float-clear">
-                            <small><em>Inclusief BTW</em></small>
-                        </p>
-                        <div>
+                        <div class="small-price">
+                            <h3 class="price">
+                                &euro;&nbsp;{{ (product.price_details.piece_price.in)|number_format(2, ',', '.') }}
+                                {#<div class="float-right"><span#}
+                                {#class="flag-icon flag-icon-<?= strtolower($product['price']['price_for_country']) ?>"></span>#}
+                                {#</div>#}
+                            </h3>
+                            <p class="float-clear" style="margin: 15px 0;">
+                                <small><em>Inclusief BTW</em></small>
+                            </p>
+                        </div>
+                        <div class="order">
                             <a href="{{ lang.url.shopping_cart_add ~ product.id }}/1" class="btn btn btn-block btn-success order-link box-shadow">
                                 In winkelwagen <span class="glyphicon glyphicon-shopping-cart"></span>
                             </a>

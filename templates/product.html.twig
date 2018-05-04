@@ -3,12 +3,15 @@
 {% block content %}
 
 
-    <div class="row product" style="margin-top: 50px">
-        <div class="col-md-4 center">
+    <div class="product" style="margin-top: 20px">
+        <div class="col-md-12">
+            <h3>{{ product.name }}</h3>
+        </div>
+
+        <div class="col-md-4">
             <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}" class="fill round-border box-shadow">
         </div>
-        <div class="col-md-6" style="margin-left: -15px">
-            <h3>{{ product.name }}</h3>
+        <div class="col-md-6 product-desc" style="margin-left: -15px">
 
             <!-- PRODUCT DESCRIPTION -->
             <p >{{ product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!' }}</p>
@@ -29,11 +32,6 @@
                 <p class="float-clear">
                     <small><em>Inclusief BTW</em></small>
                 </p>
-                <div>
-                    <a href="{{ lang.url.shopping_cart_add ~ product.id }}/1" class="btn btn btn-block btn-success order-link">
-                        Bestellen <span class="glyphicon glyphicon-shopping-cart"></span>
-                    </a>
-                </div>
 
                 <!-- PRODUCT STOCK -->
                 <div class="float-left stock-shipping-status">
@@ -67,6 +65,12 @@
                             <td>{{ product.sku }}</td>
                         </tr>
                     </table>
+                </div>
+
+                <div>
+                    <a href="{{ lang.url.shopping_cart_add ~ product.id }}/1" class="btn btn btn-block btn-success order-link">
+                        Bestellen <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </a>
                 </div>
             {% endif %}
 

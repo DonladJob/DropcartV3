@@ -4,7 +4,7 @@
         <span style="height:10px; display: block" aria-hidden="true">&nbsp;</span>
         <div class="push-left">
             {% if site_slug %}
-                <h4 class="slogan">{{ site_slug }}</h4>
+                <h4 class="slogan hidden-xs">{{ site_slug }}</h4>
             {% else %}
                 <div style="height: 39px;"></div>
             {% endif %}
@@ -53,7 +53,7 @@
         <div class="push-right header-nav">
             <!-- Pages menu -->
             {% include 'blocks/pages_menu.html.twig' %}
-            <div class="float-clear"></div>
+            <div class="float-clear hidden-xs"></div>
 
             <div id="cart">
                 <!-- Shopping cart -->
@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-<hr class="hidden-sm hidden-md hidden-lg">
+{#<hr class="hidden-sm hidden-md hidden-lg">#}
 <!-- Main menu -->
 <div class="masthead">
     {% include 'blocks/main_menu.html.twig' %}
