@@ -9,14 +9,30 @@
             if (window.pageYOffset >= sticky) {
                 header.classList.add("hidden");
                 fixedheader.classList.remove("hidden");
-//                header.classList.add("sticky");
                 content.classList.add("content");
             } else {
                 header.classList.remove("hidden");
                 fixedheader.classList.add("hidden");
-//                header.classList.remove("sticky");
                 content.classList.remove("content");
             }
         }
+
+        // Get height of footer
+        $(document).ready(function() {
+            $footerHeight = $("#footer").outerHeight();
+
+            $('#body').css('margin-bottom', -$footerHeight);
+        });
+
+        // Navbar hidden on scrollDown
+//        var prev = 0;
+//        var $window = $(window);
+//        var nav = $('.nav');
+//
+//        $window.on('scroll', function(){
+//            var scrollTop = $window.scrollTop();
+//            nav.toggleClass('hidden', scrollTop > prev);
+//            prev = scrollTop;
+//        });
     </script>
 {% endblock %}

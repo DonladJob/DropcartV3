@@ -147,7 +147,6 @@ html, body {
 
 .body {
 	min-height: 99%;
-	margin-bottom: -96px;
 }
 
 /* De color transition wat smoother gemaakt */
@@ -362,7 +361,8 @@ footer li a {
 	padding-top: 19px;
 }
 .footer, .push {
-	height: 98px;
+	float: left;
+	padding-bottom: 0;
 }
 .ftrtop {
 	/*padding-bottom: 50px;*/
@@ -512,8 +512,8 @@ footer li a {
 }
 
 @media screen and (max-width: 430px) {
-	.body {
-		margin-bottom: -230px;
+	body {
+		font-size: 125%
 	}
 	.content {
 		padding-top: 100px;
@@ -552,9 +552,6 @@ footer li a {
 	.filter-box {
 		margin-top: 25px;
 	}
-	.footer, .push {
-		height: 230px;
-	}
 	footer ul {
 		padding:0;
 	}
@@ -572,12 +569,17 @@ footer li a {
 
 	.price-box {
 		height:auto;
-		padding:15px 15px;
+		padding:10px 15px 0;
+		float: left;
+		width:100%;
 	}
 	.price-box .order {
 		width:65%;
 		float: left;
 		padding: 3px 10px;
+	}
+	.price-box .order a {
+		width: fit-content;
 	}
 	.price {
 		margin: 0 !important;
@@ -612,6 +614,7 @@ footer li a {
 	}
 	.product-price {
 		height:auto;
+		margin-bottom: 20px;
 	}
 	.product-image {
 		width: 35%;
@@ -651,5 +654,14 @@ footer li a {
 	}
 	.product-floating-box .color {
 		padding: 0;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	body {
+		font-size: 100%;
+	}
+	h1,h2,h3,h4,h5 {
+		font-size:175%;
 	}
 }
