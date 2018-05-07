@@ -10,6 +10,9 @@
                 header.classList.add("hidden");
                 fixedheader.classList.remove("hidden");
                 content.classList.add("content");
+
+
+//                fixedheader.classList.add("");
             } else {
                 header.classList.remove("hidden");
                 fixedheader.classList.add("hidden");
@@ -20,8 +23,11 @@
         // Get height of footer
         $(document).ready(function() {
             $footerHeight = $("#footer").outerHeight();
+            $containterWidth = $("#container").width();
+//            $containerPadding = $("#container").paddingLeft + $("#container").paddingRight;
 
             $('#body').css('margin-bottom', -$footerHeight);
+            $('#fixednavbar').css('width', $containterWidth);
         });
 
         // Navbar hidden on scrollDown

@@ -8,10 +8,10 @@
             <h3>{{ product.name }}</h3>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6">
             <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}" class="fill round-border box-shadow">
         </div>
-        <div class="col-md-6 product-desc" style="margin-left: -15px">
+        <div class="col-md-6 col-sm-6 product-desc" style="margin-left: -15px">
 
             <!-- PRODUCT DESCRIPTION -->
             <p >{{ product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!' }}</p>
@@ -20,7 +20,7 @@
         </div>
 
         <!-- PRODUCT PRICE -->
-        <div class="col-md-2 product-price round-border box-shadow">
+        <div class="col-md-2 col-sm-6 product-price round-border box-shadow">
 
             {% if product.price_details %}
                 <h3 class="price">

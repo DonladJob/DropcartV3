@@ -47,9 +47,9 @@ return [
 
     // Dropcart config
     "DROPCART_KEY" => "48a3d8a196bda164c3229a4dc26491c97d5555b40cca148fa04da9dc430e54d5",
-    "DROPCART_SECRET" => "c83a98b9c1a5946bdeab8e678312ccb55ac8c42d82fc2af4252b50a1de6e7a39",
+    "DROPCART_SECRET" => "deb55baeb5c88f95e61ed929500166ae0dbc61e14ffb7cd418d771845104b0e0",
     "DROPCART_ENDPOINT" => "https://rest-api.sandbox.dropcart.nl/v3",
-    "TIMEOUT" => 5,
+    "TIMEOUT" => 10,
 
     // Site global config
     "SITE_NAME" => "",
