@@ -5,40 +5,30 @@
         var content = document.getElementById("content");
         var sticky = header.offsetTop;
 
-        function stickyHeader() {
-            if (window.pageYOffset >= sticky) {
-                header.classList.add("hidden");
-                fixedheader.classList.remove("hidden");
-                content.classList.add("content");
-
-
-//                fixedheader.classList.add("");
-            } else {
-                header.classList.remove("hidden");
-                fixedheader.classList.add("hidden");
-                content.classList.remove("content");
-            }
-        }
-
-        // Get height of footer
         $(document).ready(function() {
+            // Get height of footer
             $footerHeight = $("#footer").outerHeight();
-            $containterWidth = $("#container").width();
-//            $containerPadding = $("#container").paddingLeft + $("#container").paddingRight;
+            $('#bodyContent').css('margin-bottom', -$footerHeight);
 
-            $('#body').css('margin-bottom', -$footerHeight);
+            // Navbar same width as container
+            $containterWidth = $("#container").width();
             $('#fixednavbar').css('width', $containterWidth);
+
+            // Always check for stickyHeader
+            $( window ).scroll(function() {
+                if (window.pageYOffset >= sticky) {
+                    header.classList.add("hidden");
+                    fixedheader.classList.remove("hidden");
+                    content.classList.add("content");
+                } else {
+                    header.classList.remove("hidden");
+                    fixedheader.classList.add("hidden");
+                    content.classList.remove("content");
+                }
+            });
+
         });
 
-        // Navbar hidden on scrollDown
-//        var prev = 0;
-//        var $window = $(window);
-//        var nav = $('.nav');
-//
-//        $window.on('scroll', function(){
-//            var scrollTop = $window.scrollTop();
-//            nav.toggleClass('hidden', scrollTop > prev);
-//            prev = scrollTop;
-//        });
+
     </script>
 {% endblock %}
