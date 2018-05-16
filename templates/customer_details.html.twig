@@ -1,3 +1,4 @@
+
 {% extends "layouts/layout.html.twig" %}
 
 {% block stylesheets %}
@@ -13,26 +14,26 @@
     <ul class="nav nav-tabs order-tabs">
         <li>
             <a href="{{ lang.url.shopping_cart }}">
-                <strong>Stap 1 - </strong>
-                Winkelwagen
+                <strong>Stap 1</strong>
+                <div class="hidden-xs">&nbsp;- Winkelwagen</div>
             </a>
         </li>
         <li class="active">
             <a href="javascript:void(0);">
-                <strong>Stap 2 - </strong>
-                Uw gegevens
+                <strong>Stap 2</strong>
+                <div class="hidden-xs">&nbsp;- Uw gegevens</div>
             </a>
         </li>
         <li class="{{ transaction is defined ? '' : 'disabled' }}">
             <a href="{{ transaction is defined ? lang.url.checkout : 'javascript:void(0);' }}">
-                <strong>Stap 3 - </strong>
-                Bevestigen en betalen
+                <strong>Stap 3</strong>
+                <div class="hidden-xs">&nbsp;- Bevestigen en betalen</div>
             </a>
         </li>
         <li class="disabled">
             <a href="javascript:void(0);">
-                <strong>Stap 4 - </strong>
-                Bestelling geplaatst
+                <strong>Stap 4</strong>
+                <div class="hidden-xs">&nbsp;- Bestelling geplaatst</div>
             </a>
         </li>
     </ul>
@@ -132,9 +133,9 @@
                 <label class="col-sm-3 control-label" for="billing_country">Land</label>
                 <div class="col-sm-8">
                     <select class="form-control"{{ (transaction is defined and transaction.status == "CONFIRMED") ? ' disabled="disabled"' : '' }} name="billing_country">
-                    {% for country in countries %}
-                        <option value="{{ country.id }}"{{ customer_details.billing_address.country_id == country.id ? ' selected' : '' }}>{{ country.name }}</option>
-                    {% endfor %}
+                        {% for country in countries %}
+                            <option value="{{ country.id }}"{{ customer_details.billing_address.country_id == country.id ? ' selected' : '' }}>{{ country.name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -223,14 +224,12 @@
         <div class="shopping-bag"></div>
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-8">
-                <div class="next-step">
-                    {% if transaction is defined and transaction.status == "CONFIRMED" %}
-                        <button type="submit" class="btn btn btn-block btn-primary quote-link">Naar stap 3 - Afrekenen</button>
-                    {% else %}
-                        <button type="submit" class="btn btn btn-block btn-primary quote-link">Opslaan en naar stap 3 - Afrekenen</button>
-                    {% endif %}
-                </div>
+            <div class="col-sm-8 col-xs-12 col-md-6 col-md-offset-3">
+                {% if transaction is defined and transaction.status == "CONFIRMED" %}
+                    <button type="submit" class="btn btn btn-block btn-primary quote-link">Naar stap 3 - Afrekenen</button>
+                {% else %}
+                    <button type="submit" class="btn btn btn-block btn-primary quote-link">Opslaan en naar stap 3 - Afrekenen</button>
+                {% endif %}
             </div>
         </div>
 

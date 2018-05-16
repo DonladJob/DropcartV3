@@ -1,3 +1,4 @@
+
 {% extends "layouts/layout.html.twig" %}
 
 {% block content %}
@@ -7,26 +8,26 @@
     <ul class="nav nav-tabs order-tabs">
         <li class="active">
             <a href="javascript:void(0);">
-                <strong>Stap 1 - </strong>
-                Winkelwagen
+                <strong>Stap 1</strong>
+                <div class="hidden-xs">&nbsp;- Winkelwagen</div>
             </a>
         </li>
         <li class="{{ shopping_cart|length <= 0 ? 'disabled' : '' }}">
             <a href="{{ shopping_cart|length >= 1 ? lang.url.customer_details : 'javascript:void(0);' }}">
-                <strong>Stap 2 - </strong>
-                Uw gegevens
+                <strong>Stap 2</strong>
+                <div class="hidden-xs">&nbsp;- Uw gegevens</div>
             </a>
         </li>
         <li class="{{ transaction is defined ? '' : 'disabled' }}">
             <a href="{{ transaction is defined ? lang.url.checkout : 'javascript:void(0);' }}">
-                <strong>Stap 3 - </strong>
-                Bevestigen en betalen
+                <strong>Stap 3</strong>
+                <div class="hidden-xs">&nbsp;- Bevestigen en betalen</div>
             </a>
         </li>
         <li class="disabled">
             <a href="javascript:void(0);">
-                <strong>Stap 4 - </strong>
-                Bestelling geplaatst
+                <strong>Stap 4</strong>
+                <div class="hidden-xs">&nbsp;- Bestelling geplaatst</div>
             </a>
         </li>
     </ul>
