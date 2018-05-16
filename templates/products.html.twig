@@ -4,7 +4,7 @@
 
     <h1>{{ page_title ? page_title : '' }}</h1>
 
-    <div class="col-md-2 filter-box">
+    <div class="col-md-2 filter-box hidden-sm hidden-xs">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h5 class="panel-title">Filter resultaten</h5>
@@ -43,6 +43,54 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <button type="submit" class="btn btn-primary pull-left">Filter</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button class="filter-button hidden-md hidden-lg" onclick="filter_open()">Filter ☰</button>
+    <div class="filter-block" style="display: none;" id="filterSidebar">
+        <div class="panel panel-default">
+            {#<button onclick="filter_close()" class="filter-item filter-large">Close &times;</button>#}
+            <div class="panel-heading box-shadow">
+                <h5 class="panel-title">Filter resultaten</h5>
+            </div>
+            <div class="panel-body box-shadow">
+                <form action="{{ query_string }}" class="form-horizontal">
+
+                    <div class="form-group">
+                        <div class=" col-sm-12">
+
+                            {% for brand in brands %}
+                                <div class="checkbox">
+                                    <label class="checkbox-custom" id="brand-{{ brand.id }}">
+                                        <input name="brands[]" type="checkbox"
+                                               value="{{ brand.id }}"{{ brand.id in selected_brands ? ' checked="checked"' : ''}}>
+                                        <span class="checkbox-label">{{ brand.name }}</span>
+                                    </label>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="checkbox">
+                                <label class="checkbox-custom" id="0">
+                                    <input name="show_unavailable_items" type="checkbox"
+                                           value="true" {{ show_unavailable ? 'checked="checked"' : '' }}>
+                                    <span class="checkbox-label">Toon ook niet voorraadige producten</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="submit" onclick="filter_close()" class="btn btn-primary pull-left">Filter</button>
                         </div>
                     </div>
                 </form>

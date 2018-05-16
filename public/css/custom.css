@@ -145,7 +145,7 @@ html, body {
 	height: 100%;
 }
 
-.body {
+.bodyContent {
 	min-height: 99%;
 }
 
@@ -382,6 +382,7 @@ footer li a {
 	border: 1px solid #ddd;
 }
 .ftrbtm p {
+	font-size: small;
 	margin-bottom: 0;
 	padding: 5px 0;
 }
@@ -464,7 +465,7 @@ footer li a {
 	/* use this value to count block height */
 	line-height: 1.2em;
 	/* max-height = line-height (1.2) * lines max number (3) */
-	max-height: 3.6em;
+	max-height: 3.4em;
 	/* fix problem when last visible word doesn't adjoin right side  */
 	text-align: justify;
 	/* place for '...' */
@@ -495,6 +496,64 @@ footer li a {
 	margin-top: 0.2em;
 	/* bg color = bg color under block */
 	background: white;
+}
+
+.filter-sidebar {
+	height: 100%;
+	width: 200px;
+	background-color: #fff;
+	position: fixed!important;
+	z-index: 1;
+	overflow: auto;
+}
+
+.filter-block {
+	z-index: 1000;
+}
+
+.filter-block .filter-item {
+	width: 100%;
+	display: block;
+	padding: 8px 16px;
+	text-align: left;
+	border: none;
+	white-space: normal;
+	float: none;
+	outline: 0;
+}
+
+.filter-border-left {
+	border-left: 1px solid #ccc!important;
+}
+
+.filter-xlarge {
+	font-size: 24px!important;
+}
+
+.filter-button {
+	float: right;
+	margin-top: -40px;
+	padding:5px;
+	/*right: 0;*/
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+	color: #777;
+	z-index:1000;
+	border-radius: 2px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+	.product-details {
+		float: left !important;
+	}
+
+	.price-box .order {
+		width: fit-content;
+	}
+
+	.product-middle h3 {
+		margin-top: 0px;
+	}
 }
 
 @media screen and (min-width: 769px) {
@@ -610,7 +669,7 @@ footer li a {
 		height: 50px;
 	}
 	h1{
-		font-size: xx-large;
+		font-size: x-large;
 	}
 	h3 {
 		font-size:20px;

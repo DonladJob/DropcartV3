@@ -29,6 +29,13 @@
 
         });
 
+        function filter_open() {
+            if (document.getElementById("filterSidebar").style.display === "none") {
+                document.getElementById("filterSidebar").style.display = "block";
+            } else {
+                document.getElementById("filterSidebar").style.display = "none";
+            }
+        }
 
     </script>
 {% endblock %}
