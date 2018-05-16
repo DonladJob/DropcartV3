@@ -510,6 +510,15 @@ footer li a {
 	border-radius: 2px;
 }
 
+.order-tabs a, .order-tabs strong, .order-tabs div {
+	float: left;
+}
+
+.panel-heading {
+	/*background-image: none !important;*/
+	/*background-color: #f5f5f5 !important;*/
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1365px) {
 	.product-details {
 		float: left !important;
@@ -750,60 +759,10 @@ footer li a {
 	}
 }
 
-@media screen and (min-width: 600px) {
-	.content {
-		padding-top: 52px;
-	}
-	.slogan {
-		height: 40px;
-	}
-	.price-box {
-		margin-left: -15px;
-	}
-}
-
-@media screen and (max-width: 430px) {
-	.header {
-		padding-top: 100px;
-	}
-	.slogan {
-		height: 50px;
-	}
-
-	.nav-pills>li>a {
-		padding: 5px 10px;
-	}
-	.xs-menu {
-		left:0;
-	}
-	.filter-box {
-		margin-top: 25px;
-	}
-	footer ul {
-		padding:0;
-	}
-	footer ul li {
-		padding-left:0 !important;
-	}
-	.ftrtop .social {
-		padding: 0;
-		margin-top: -4%;
-	}
-	.ftrtop .social a {
-		float: left;
-		margin: 2px;
-	}
-}
-
+/* Furat's css */
 .totalPrice{
 	float: right;
 	margin-top: 10px;
-}
-
-@media screen and (max-width: 600px){
-	.floating-box {
-		text-align: center !important;
-	}
 }
 
 @media screen and (max-width: 600px){
@@ -811,40 +770,31 @@ footer li a {
 		width: 100% ;
 		margin-left: 45px;
 	}
-}
-
-@media screen and (max-width: 600px){
 	.OrderButton {
 		text-align: center !important;
 		width: 200px !important;
 	}
-}
-
-@media screen and (max-width: 600px){
 	#shipping-status_01 {
 		text-align: center;
 		display: none;
 	}
-}
-
-@media screen and (max-width: 600px){
 	.shopping-bag {
 		min-width: 100%;
 	}
-}
-
-@media screen and (max-width: 600px){
 	.order-tabs li {
 		min-width: 25%;
 		max-width: 25%;
 		min-height: 50px;
 		max-height: 50px;
 	}
-}
-
-@media screen and (max-width: 600px){
 	.totalPrice {
 		width: 100%;
+	}
+	.product-name {
+		color: #337ab7;
+	}
+	.label {
+		display: none;
 	}
 }
 
@@ -852,22 +802,6 @@ footer li a {
 	.totalPrice {
 		width: 100%;
 	}
-}
-
-
-@media screen and (max-width: 600px){
-	.label {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 600px){
-	.product-name {
-		color: #337ab7;
-	}
-}
-
-@media screen and (max-width: 991px){
 	.payment_lg {
 		display: none;
 	}
