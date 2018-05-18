@@ -266,7 +266,7 @@
                         </div>
 
                         <div class="col-md-3 col-xs-4 text-right product-input">
-                            <input class="product-quantity" type="text" data-truevalue="{{ order_product.quantity }}"
+                            <input class="product-quantity col-md-2 col-md-offset-8 col-xs-offset-0 col-xs-12 col-sm" type="text" data-truevalue="{{ order_product.quantity }}"
                                    value="{{ order_product.quantity }}" disabled/>
 
                             {% if transaction is not defined or transaction.status != 'CONFIRMED' %}
@@ -345,10 +345,11 @@
                         <table></table>
                     </div>
                     <div class="col-xs-12 col-md-4">
-                        <button type="submit" class="btn btn btn-block btn-primary">Naar afrekenen</button>
-                        {#<button type="button" class="btn btn btn-block btn-primary">
-                            Naar afrekenen
-                        </button> #}
+                         {% if transaction is defined and transaction %}
+                        <a href="{{ lang.url.checkout }}"><button type="submit" class="btn btn btn-block btn-primary">Naar afrekenen</button></a>
+                        {% else %}
+
+                        {% endif %}
                     </div>
                 </div>
             </div>
