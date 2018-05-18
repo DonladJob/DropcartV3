@@ -806,3 +806,15 @@ footer li a {
 		display: none;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.product-quantity {
+		max-width: 30px !important;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.confirm {
+		margin-bottom: 10px !important;
+	}
+}

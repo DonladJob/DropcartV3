@@ -79,23 +79,23 @@
 		<div class="col-xs-12">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="panel-title">
-						<div class="row">
-							<div class="col-md-3 col-md-offset-2 hidden-xs">
-								<h4>Product</h4>
-							</div>
-							<div class="col-md-3 hidden-xs text-right">
-								<h4>Aantal</h4>
-							</div>
-							<div class="col-md-2 hidden-xs text-right">
-								<h4>Stukprijs</h4>
-							</div>
-							<div class="col-md-2 hidden-xs text-right">
-								<h4>Totaalprijs</h4>
-							</div>
-						</div>
-					</div>
-				</div>
+                <div class="panel-title">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-4 col-md-offset-2">
+                            <h4>Product</h4>
+                        </div>
+                        <div class="col-md-3 col-xs-4 text-right">
+                            <h4>Aantal</h4>
+                        </div>
+                        <div class="col-md-2 hidden-xs text-right">
+                            <h4>Stukprijs</h4>
+                        </div>
+                        <div class="col-md-2 col-xs-4 text-right">
+                            <h4>Totaalprijs</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 				<div class="panel-body">
 				{% for order_product in shopping_cart %}
@@ -104,7 +104,7 @@
                              class="fill">
 
 						</div>
-						<div class="col-xs-6 col-md-3">
+						<div class="col-xs-4 col-md-3">
 							<strong><a class="product-name" href="{{ lang.url.product ~ order_product.product.name|url_encode ~ '/' ~ order_product.product.id }}">{{ order_product.product.name }}</a></strong>
                         <br>
                           {% if order_product.product.stock is defined and order_product.product.stock > 0 %}
@@ -142,7 +142,7 @@
 						</p>
 						</div>
 
-						<div class="col-md-3 hidden-xs text-right">
+						<div class="col-md-3 col-xs-4 text-right">
 						    <h6><strong>{{ order_product.quantity }}<span class="text-muted"></span></strong></h6>
                         </div>
                         <div class="col-md-2 text-right">
@@ -277,13 +277,17 @@
 				</div>
 				<div class="panel-footer">
 					<div class="row text-center">
-						<div class="col-xs-7 col-md-8">
-							<table></table>
-						</div>
-						<div class="col-xs-5 col-md-4">
-							<button type="button" class="btn btn-success btn-block " >
-								Checkout
-							</button>
+					<div class="col-xs-12 col-md-8" style="margin-top: 5px;">
+                            <label class="confirm"><input type="checkbox" name="conditions" {{ transaction is defined and transaction.status == "CONFIRMED" ? ' checked="checked" disabled="disabled"' : '' }} data-bv-field="conditions" class="i-agree-with-the-conditions">
+                                Ik ga akkoord met de algemene voorwaarden <a href="{{ lang.url.terms_and_confitions }}">(Bekijk)</a>
+                            </label>
+                        </div>
+						<div class="col-xs-12 col-md-4">
+								 {% if transaction is defined and transaction.status == "CONFIRMED" %}
+                        <button type="submit" class="btn btn-success btn-block "><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Opnieuw naar Betalen</button>
+                    {% else %}
+                        <button type="submit" class="btn btn-success btn-block "><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Bestelling plaatsen en Betalen</button>
+                    {% endif %}
 						</div>
 					</div>
 				</div>
