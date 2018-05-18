@@ -809,7 +809,7 @@ footer li a {
 
 @media screen and (max-width: 768px) {
 	.product-quantity {
-		max-width: 30px !important;
+		max-width: 50px !important;
 	}
 }
 
