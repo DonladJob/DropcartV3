@@ -36,7 +36,7 @@
  *
  * =========================================================
  */
-
+session_unset();
 echo view('home.html.twig', [
     'page_title' => lang('page_titles.home'),
     'base_uri' => url()

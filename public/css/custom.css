@@ -818,3 +818,7 @@ footer li a {
 		margin-bottom: 10px !important;
 	}
 }
+
+.empty_shopping_cart{
+	text-align: center;
+}
