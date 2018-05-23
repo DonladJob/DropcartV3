@@ -51,6 +51,11 @@ function removeqsvar($url, $varname)
     return $urlpart . '?' . $newqs;
 }
 
+function dd($data) {
+    highlight_string("<?php \n" . var_export($data, true) . ";\n?>");
+    die();
+}
+
 /**
  * @return string
  */

@@ -146,7 +146,7 @@ html, body {
 }
 
 .bodyContent {
-	min-height: 99%;
+	min-height: 99.2%;
 }
 
 /* De color transition wat smoother gemaakt */
@@ -498,6 +498,22 @@ footer li a {
 	background: white;
 }
 
+.product-overview-text {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    /*height: 3.6em; !* Fallback for non-webkit *!*/
+    margin: 0 auto;
+    line-height: 1.2em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pdesc.product-overview-text p {
+    margin: 0;
+}
+
 .filter-button {
 	float: right;
 	margin-top: -40px;
@@ -514,9 +530,13 @@ footer li a {
 	float: left;
 }
 
-.panel-heading {
-	/*background-image: none !important;*/
-	/*background-color: #f5f5f5 !important;*/
+@-moz-document url-prefix() {
+    .product-overview-text {
+        height:6.7em;
+    }
+    .nav-justified {
+        max-height:50px !important;
+    }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1365px) {
@@ -766,6 +786,9 @@ footer li a {
 }
 
 @media screen and (max-width: 600px){
+	.h4, h4 {
+		font-size: small;
+	}
 	.OrderButton .btn-block {
 		width: 100% ;
 		margin-left: 45px;
@@ -782,10 +805,7 @@ footer li a {
 		min-width: 100%;
 	}
 	.order-tabs li {
-		min-width: 25%;
-		max-width: 25%;
-		min-height: 50px;
-		max-height: 50px;
+		width: 25%;
 	}
 	.totalPrice {
 		width: 100%;
@@ -795,6 +815,11 @@ footer li a {
 	}
 	.label {
 		display: none;
+	}
+	.panel-body .hidden-md div span {
+		float: left;
+		text-align: center;
+		width: 100%;
 	}
 }
 

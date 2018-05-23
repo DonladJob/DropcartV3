@@ -9,12 +9,12 @@
         </div>
 
         <div class="col-md-4 col-sm-6">
-            <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}" class="fill round-border box-shadow">
+            <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}" class="fill round-border">
         </div>
         <div class="col-md-6 col-sm-6 product-desc" style="margin-left: -15px">
 
             <!-- PRODUCT DESCRIPTION -->
-            <p >{{ product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!' }}</p>
+            <p >{{ (product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!')|raw }}</p>
 
             <div class="clearfix"></div>
         </div>

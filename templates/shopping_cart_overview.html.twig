@@ -53,7 +53,7 @@
         {% else %}
             <thead>
             <tr>
-                <th width="10%"></th>
+                <th class="hidden-xs hidden-sm" width="10%"></th>
                 <th>Product</th>
                 <th width="14%">Aantal</th>
                 <th width="12%" class="align-right">Stukprijs</th>
@@ -64,7 +64,7 @@
 
             {% for order_product in shopping_cart %}
                 <tr class="{{ order_product.product.id }}">
-                    <td>
+                    <td class="hidden-xs hidden-sm">
                         <img src="{{ order_product.product.images|length > 0 ? order_product.product.images[0].url : '/img/no_image.gif' }}"
                              class="fill">
                     </td>
@@ -136,7 +136,7 @@
             </tbody>
             <tfoot>
             <tr class="subtotal">
-                <td colspan="2"></td>
+                <td colspan="1"></td>
                 <td colspan="2" class="totals-column" align="left">Subtotaal (incl. BTW)</td>
                 <td colspan="1" class="totals-column" align="right">
                     <p>
@@ -145,7 +145,7 @@
                 </td>
             </tr>
             <tr class="shipping-costs">
-                <td colspan="2"></td>
+                <td colspan="1"></td>
                 <td colspan="2" class="totals-column" align="left">Verzendkosten</td>
                 <td colspan="1" class="totals-column" align="right">
                     <p>
@@ -154,7 +154,7 @@
                 </td>
             </tr>
             <tr class="total">
-                <td colspan="2"></td>
+                <td colspan="1"></td>
                 <td colspan="2" class="" align="left">
                     <p class="totals-paragraph">
                         Totaal

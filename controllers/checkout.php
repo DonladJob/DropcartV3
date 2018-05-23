@@ -42,8 +42,14 @@ include __DIR__.'/../classes/transaction.php';
 // Initialize new transaction
 $transaction = new transaction([]);
 
+// Check / validate prices and notify user if they have changed
+$price_changed = shopping_cart()->productPricesChanged();
+if ($price_changed) {
+    flash_messages()->setWarningMessages('De prijzen voor één of meerdere producten zijn veranderd.');
+}
+
 // POST actions
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$price_changed)
 {
     // Check if the order is confirmed
     if (isset($_POST['conditions']) && $_POST['conditions']) {
@@ -99,6 +105,7 @@ $payment_methods = json_decode(request([], 'payment', 'payment'));
 echo view('checkout.html.twig', [
 	// Pass the shopping cart to the template
 	'shopping_cart' => shopping_cart()->get(),
+    'shopping_cart_overview'    => shopping_cart()->overview(),
 	// Payment methods for the store
 	'payment_methods' => $payment_methods,
 	// Warnings and errors

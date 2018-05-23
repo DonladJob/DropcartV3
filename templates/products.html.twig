@@ -130,7 +130,7 @@
                 <!-- PRODUCT IMAGE -->
                 <div class="col-md-3 center product-image">
                     <img src="{{ product.images|length > 0 ? product.images[0].url : '/img/no_image.gif' }}"
-                         class="fill round-border box-shadow">
+                         class="fill round-border">
                 </div>
 
                 <div class="col-md-7 product-middle">
@@ -173,7 +173,9 @@
                     <div class="float-clear"></div>
 
                     <!-- PRODUCT DESCRIPTION -->
-                    <p class="pdesc block-with-text">{{ product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!' }}</p>
+                    <div class="pdesc product-overview-text">
+                        <p style="margin-top: 10px">{{ (product.description ? product.description : product.name ~ ' wordt binnen 24 uur verzonden mits op voorraad. Dat is de service van ' ~ site_name ~ '!')|raw }}</p>
+                    </div>
 
                 </div>
 

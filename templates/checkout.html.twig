@@ -81,16 +81,16 @@
 				<div class="panel-heading">
 					<div class="panel-title">
 						<div class="row">
-							<div class="col-md-3 col-md-offset-2 hidden-xs">
+							<div class="col-xs-3 col-md-offset-2">
 								<h4>Product</h4>
 							</div>
-							<div class="col-md-3 hidden-xs text-right">
+							<div class="col-xs-3 text-right">
 								<h4>Aantal</h4>
 							</div>
-							<div class="col-md-2 hidden-xs text-right">
+							<div class="col-xs-2 text-right hidden-xs">
 								<h4>Stukprijs</h4>
 							</div>
-							<div class="col-md-2 hidden-xs text-right">
+							<div class="col-xs-2 text-right">
 								<h4>Totaalprijs</h4>
 							</div>
 						</div>
@@ -100,21 +100,21 @@
 				<div class="panel-body">
 				{% for order_product in shopping_cart %}
 					<div class="row">
-						<div class="col-md-2 hidden-xs"> <img src="{{ order_product.product.images|length > 0 ? order_product.product.images[0].url : '/img/no_image.gif' }}"
+						<div class="col-xs-2 hidden-xs"> <img src="{{ order_product.product.images|length > 0 ? order_product.product.images[0].url : '/img/no_image.gif' }}"
                              class="fill">
 
 						</div>
-						<div class="col-xs-6 col-md-3">
+						<div class="col-xs-4 col-md-3">
 							<strong><a class="product-name" href="{{ lang.url.product ~ order_product.product.name|url_encode ~ '/' ~ order_product.product.id }}">{{ order_product.product.name }}</a></strong>
                         <br>
                           {% if order_product.product.stock is defined and order_product.product.stock > 0 %}
 
                             {% if order_product.quantity > order_product.product.stock %}
-                                <div class="label label-warning hidden-xs">
+                                <div class="label label-warning ">
                                 Niet genoeg op voorraad, langere levertijd
                                 </div>
                             {% else %}
-                                <div class="label label-success hidden-xs">
+                                <div class="label label-success ">
                                     {% if order_product.product.stock > 10 %}
                                         <div class="label label-success">Ruimschoots op voorraad</div>
                                     {% else %}
@@ -134,21 +134,21 @@
                         {% else %}
                             <div class="label label-warning">Dit product is niet op voorraad</div>
                         {% endif %}
-                        <p class="hidden-xs">
+                        <p class="">
                         <strong >EAN: </strong>{{ order_product.product.ean }}
                         </p>
-                        <p class="hidden-xs" style="margin-top: -10px">
+                        <p class="" style="margin-top: -10px">
 						<strong >SKU: </strong>{{ order_product.product.sku }}
 						</p>
 						</div>
 
-						<div class="col-md-3 hidden-xs text-right">
+						<div class="col-md-3 col-xs-4 text-right">
 						    <h6><strong>{{ order_product.quantity }}<span class="text-muted"></span></strong></h6>
                         </div>
-                        <div class="col-md-2 text-right">
+                        <div class="col-md-2 text-right hidden-xs">
                             <h6><strong>€ {{ (order_product.product.price_details.piece_price.in)|number_format(2, ',', '.') }}<span class="text-muted"></span></strong></h6>
                         </div>
-                         <div class="hidden-xs col-md-2 text-right">
+                         <div class=" col-md-2 col-xs-4 text-right">
                             <h6><strong>€ {{ (order_product.product.price_details.piece_price.in * order_product.quantity)|number_format(2, ',', '.') }}</strong></h6>
                         </div>
 					</div>
