@@ -534,9 +534,6 @@ footer li a {
     .product-overview-text {
         height:6.7em;
     }
-    .nav-justified {
-        max-height:50px !important;
-    }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1365px) {
@@ -625,9 +622,10 @@ footer li a {
     .product h3 {
         font-size: 23px;
     }
-    .product tr {
-        float: left;
-    }
+	.product tr {
+		float: left;
+		width: 100%;
+	}
     .product .product-desc {
         margin-left:0 !important;
         padding: 0 15px;
@@ -637,9 +635,10 @@ footer li a {
         min-width: 100%;
     }
     .product-price {
-        height:auto;
-        margin-bottom: 20px;
-        float: right;
+		height: auto;
+		margin-bottom: 20px;
+		float: right;
+		width: 30%;
     }
     .product-image {
         width: 35%;
@@ -649,6 +648,12 @@ footer li a {
     .product-list .product-details {
         float: left !important;
     }
+
+	.product .stock-shipping-status .label {
+		float: left;
+		width: 100%;
+		margin-bottom: 2px;
+	}
 }
 
 @media screen and (max-width: 468px) {

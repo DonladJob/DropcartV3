@@ -46,8 +46,8 @@ return [
     "APP_LOCALE" => "NL",
 
     // Dropcart config
-    "DROPCART_KEY" => "4d636388480e28d64b1de86d20599ff03c5d99c0d03bde5f4335895be78dbca0",
-    "DROPCART_SECRET" => "8024f491391e82cc72707873757d2287fa6e83ea697bfebc829d8785bbe20503",
+    "DROPCART_KEY" => "aee4804ad9ddf36f1f80aefbb9e6b6dbbe54c87a25c779b43414094442ccd743",
+    "DROPCART_SECRET" => "31b61e563b5b8ab3e61efb2ca09e5ab4fe5b13bcd6a6db876a091306f12082e2",
     "DROPCART_ENDPOINT" => "https://rest-api.sandbox.dropcart.nl/v3",
     "TIMEOUT" => 10,
 

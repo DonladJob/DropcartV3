@@ -43,17 +43,13 @@
     <table class="shopping-bag table">
 
         {% if shopping_cart|length < 1 %}
-            <tbody>
-            <td>
-                <div class="alert alert-info center">
-                    <h5>Uw winkelwagen is leeg</h5>
-                </div>
-            </td>
-            </tbody>
+            <div class="alert alert-info center">
+                <h5>Uw winkelwagen is leeg</h5>
+            </div>
         {% else %}
             <thead>
             <tr>
-                <th class="hidden-xs hidden-sm" width="10%"></th>
+                {#<th width="10%"></th>#}
                 <th>Product</th>
                 <th width="14%">Aantal</th>
                 <th width="12%" class="align-right">Stukprijs</th>
@@ -64,7 +60,7 @@
 
             {% for order_product in shopping_cart %}
                 <tr class="{{ order_product.product.id }}">
-                    <td class="hidden-xs hidden-sm">
+                    <td>
                         <img src="{{ order_product.product.images|length > 0 ? order_product.product.images[0].url : '/img/no_image.gif' }}"
                              class="fill">
                     </td>

@@ -201,7 +201,7 @@ class DropcartClient {
 		$url        = $request->getUrl($base_url, ($request->hasQuery() && $request->getHttpMethod() == 'GET'));
 
 //		die('Bearer ' . static::getToken());
-		$bearer = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0ZDYzNjM4ODQ4MGUyOGQ2NGIxZGU4NmQyMDU5OWZmMDNjNWQ5OWMwZDAzYmRlNWY0MzM1ODk1YmU3OGRiY2EwIiwiYXVkIjoiaHR0cDpcL1wvdGVzdC5kcm9wY2FydC5ubFwvIiwiZXhwIjoxNTI3MTAxMDc3LCJpYXQiOjE1MjcwNjUwNzd9.tHkATEgHpyIL4Rn4_TTmDYoIwyjyxOLTInlNmXn3R8A';
+		$bearer = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZWU0ODA0YWQ5ZGRmMzZmMWY4MGFlZmJiOWU2YjZkYmJlNTRjODdhMjVjNzc5YjQzNDE0MDk0NDQyY2NkNzQzIiwiYXVkIjoiaHR0cDpcL1wvdGVzdC5kcm9wY2FydC5ubFwvIiwiZXhwIjoxNTI3NTM2MDEzLCJpYXQiOjE1Mjc1MDAwMTN9.Ji3Ca2XK09pgyL0Oayefm34eltk-FK2UaPJeUhwHFsQ';
 
 		$options = [
 			'headers' => [
